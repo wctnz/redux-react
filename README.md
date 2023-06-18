@@ -1,70 +1,41 @@
-# Getting Started with Create React App
+# Redux/React практика
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+Проект доступен по ссылке - https://redux-react-practice.vercel.app/
 
-## Available Scripts
+## Стек   
 
-In the project directory, you can run:
+- React  
+- Redux  
 
-### `npm start`
+В проекте представлены базовые возможности Redux - синхронное (изменение счетчика) и асинхронное (получение списка пользователей от сервера) изменение состояния. Рассмотрела работа с состоянием в виде массива. 
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+Разобраны концепции Redux:  
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+- store, dispatch, action, reducer, combineReducers, Provider
+- работа с асинхронным кодом с помощью middleware и объекта thunk, которые позволяют создавать асинхронные экшен-криэйторы.  
+- composeWithDevtools
 
-### `npm test`
+Разобраны особенности использования Redux в React:  
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+- хук useDispatch  
+- хук useSelector
 
-### `npm run build`
+Считается хорошей практикой выносить состояние из самого компонента. Во первых потому что компонентам со своими локальными состояниями сложно взаимодействовать друг с другом. Во вторых состояние в компоненте может затруднять доработку, изменение приложения, например если верстка влияет на изменение состояния.
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+Redux выполняет роль контейнера для состояния. Позволяет вынести состояние приложения из компонента в отдельный слой (store), изменяет состояние с помощью системы редюсеров и экшенов. Компонент отслеживает изменение состояния в store (получает уведомление из store) и обновляется при изменении состояния.
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+Функционал приложения: в приложении созданы два состояния - Счетчик и Пользователи. При клике на кнопки Пополнить счет, Снять со счета, Добавить клиента вызывается функция prompt, состояние меняется синхронно с учетом введенных значений. При клике на кнопку Получить клиентов состояние меняется асинхронно - отправляется запрос и сервер возвращает массив пользователей, которые отрисовываются в приложении. При клике на карточку клиента, он удаляется. 
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
 
-### `npm run eject`
+![](public/images/1.png)    
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+![](public/images/2.png)  
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+![](public/images/3.png)  
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+![](public/images/4.png)  
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+![](public/images/5.png)  
 
-## Learn More
+![](public/images/6.png)  
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
